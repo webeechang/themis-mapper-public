@@ -1,0 +1,27 @@
+# 檔案位置: .github/dependabot.yml
+version: 2
+updates:
+  # 針對 Python 套件嘅設定
+  - package-ecosystem: "pip"     # 如果你用 Poetry 改做 "poetry"；如果用 Pipenv 改做 "pipenv"
+    directory: "/"               # 假設 requirements.txt 喺 repo 嘅最頂層目錄
+    schedule:
+      interval: "weekly"         # 每星期檢查一次 (Python project 建議 weekly，減少滋擾)
+      day: "wednesday"           # 揀閒日做 update
+    
+    # [進階設定] 自動將相關嘅 update group 埋一齊
+    groups:
+      python-minor-updates:
+        patterns:
+          - "*"                  # 將所有 Python 套件嘅 minor 同 patch update 打包做一個 PR
+        update-types:
+          - "minor"
+          - "patch"
+
+    # [進階設定] 自動 Tag 負責人
+    reviewers:
+      - "你個GitHub名"
+    
+    # [進階設定] 萬一有啲套件升級會搞爛 code，可以指定 ignore 佢
+    # ignore:
+    #   - dependency-name: "django" 
+    #     versions: [">= 5.0"]   # 例子：叫佢暫時唔好將 Django 升上 5.0 或以上版本
