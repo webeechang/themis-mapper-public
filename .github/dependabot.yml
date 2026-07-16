@@ -2,7 +2,7 @@
 version: 2
 updates:
   # 針對 Python 套件嘅設定
-  - package-ecosystem: "pip"     # 如果你用 Poetry 改做 "poetry"；如果用 Pipenv 改做 "pipenv"
+  - package-ecosystem: "poetry"  # 如果你用 Poetry 改做 "poetry"；如果用 Pipenv 改做 "pipenv"
     directory: "/"               # 假設 requirements.txt 喺 repo 嘅最頂層目錄
     schedule:
       interval: "weekly"         # 每星期檢查一次 (Python project 建議 weekly，減少滋擾)
